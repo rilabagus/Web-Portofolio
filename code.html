@@ -1,366 +1,308 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Celestial Architect | Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "surface-dim": "#10131a",
-                        "outline": "#849396",
-                        "tertiary-container": "#d0d0d0",
-                        "error": "#ffb4ab",
-                        "on-secondary-fixed-variant": "#6200bc",
-                        "primary": "#c3f5ff",
-                        "on-secondary-container": "#d5b5ff",
-                        "on-secondary": "#450086",
-                        "inverse-primary": "#006875",
-                        "on-tertiary": "#2f3131",
-                        "on-primary-container": "#00626e",
-                        "error-container": "#93000a",
-                        "on-surface-variant": "#bac9cc",
-                        "surface-container": "#1d2026",
-                        "primary-fixed-dim": "#00daf3",
-                        "inverse-surface": "#e1e2eb",
-                        "surface-variant": "#32353c",
-                        "on-secondary-fixed": "#290055",
-                        "on-background": "#e1e2eb",
-                        "tertiary-fixed": "#e2e2e2",
-                        "on-tertiary-container": "#575959",
-                        "primary-fixed": "#9cf0ff",
-                        "on-error": "#690005",
-                        "surface-container-highest": "#32353c",
-                        "secondary-fixed": "#eddcff",
-                        "on-primary-fixed-variant": "#004f58",
-                        "surface-bright": "#363940",
-                        "on-primary-fixed": "#001f24",
-                        "secondary-fixed-dim": "#d8b9ff",
-                        "surface": "#10131a",
-                        "outline-variant": "#3b494c",
-                        "surface-container-lowest": "#0b0e14",
-                        "on-error-container": "#ffdad6",
-                        "secondary-container": "#6e06d0",
-                        "surface-tint": "#00daf3",
-                        "tertiary": "#ececec",
-                        "background": "#10131a",
-                        "secondary": "#d8b9ff",
-                        "on-tertiary-fixed-variant": "#454747",
-                        "on-surface": "#e1e2eb",
-                        "inverse-on-surface": "#2e3037",
-                        "tertiary-fixed-dim": "#c6c6c7",
-                        "primary-container": "#00e5ff",
-                        "on-tertiary-fixed": "#1a1c1c",
-                        "on-primary": "#00363d",
-                        "surface-container-high": "#272a31",
-                        "surface-container-low": "#191c22"
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Inter"],
-                        "label": ["Manrope"]
-                    },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-                },
-            },
-        }
-    </script>
-<style>html { scroll-behavior: smooth; }
-        body {
-            background-color: #10131a;
-            color: #e1e2eb;
-            overflow-x: hidden;
-        }
-        .star-field {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(rgba(16, 19, 26, 0.85), rgba(16, 19, 26, 0.85)),
-                url('{{DATA:IMAGE:IMAGE_5}}');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            overflow: hidden;
-        }
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: twinkle var(--duration) infinite ease-in-out;
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        .falling-star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: linear-gradient(to right, rgba(195, 245, 255, 0), rgba(195, 245, 255, 1));
-            animation: fall var(--fall-duration) infinite linear;
-            opacity: 0;
-        }
-        @keyframes fall {
-            0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
-            5% { opacity: 1; }
-            15% { opacity: 0; }
-            100% { transform: translateX(-1000px) translateY(1000px) rotate(-45deg); opacity: 0; }
-        }
-        .glass-card {
-            background: rgba(54, 57, 64, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    
-        .btn-glow-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-glow-hover:hover {
-            border-color: #00E5FF !important;
-            box-shadow: 0 0 30px 5px rgba(0, 229, 255, 0.6), 0 0 10px 2px rgba(255, 255, 255, 0.4) !important;
-            transform: translateY(-2px);
-        }
-        .btn-glow-secondary-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-glow-secondary-hover:hover {
-            border-color: rgba(255, 255, 255, 0.8) !important;
-            box-shadow: 0 0 25px 2px rgba(255, 255, 255, 0.3) !important;
-            transform: translateY(-2px);
-        }
-    </style>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Celestial Architect | Portfolio</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="style.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="font-body selection:bg-primary/30 selection:text-primary">
-<!-- Star Field Background with Image Overlay -->
-<div class="star-field">
-<!-- Static/Twinkling Stars -->
-<div class="star" style="top: 10%; left: 20%; width: 2px; height: 2px; --duration: 3s;"></div>
-<div class="star" style="top: 30%; left: 70%; width: 1px; height: 1px; --duration: 5s;"></div>
-<div class="star" style="top: 50%; left: 40%; width: 2px; height: 2px; --duration: 4s;"></div>
-<div class="star" style="top: 80%; left: 10%; width: 1px; height: 1px; --duration: 6s;"></div>
-<div class="star" style="top: 15%; left: 85%; width: 3px; height: 3px; --duration: 7s;"></div>
-<div class="star" style="top: 5%; left: 45%; width: 1px; height: 1px; --duration: 4s;"></div>
-<div class="star" style="top: 25%; left: 15%; width: 2px; height: 2px; --duration: 6s;"></div>
-<div class="star" style="top: 45%; left: 80%; width: 1px; height: 1px; --duration: 3s;"></div>
-<div class="star" style="top: 65%; left: 35%; width: 3px; height: 3px; --duration: 8s;"></div>
-<div class="star" style="top: 85%; left: 60%; width: 1px; height: 1px; --duration: 5s;"></div>
-<div class="star" style="top: 95%; left: 25%; width: 2px; height: 2px; --duration: 7s;"></div>
-<div class="star" style="top: 12%; left: 95%; width: 1px; height: 1px; --duration: 4.5s;"></div>
-<div class="star" style="top: 38%; left: 5%; width: 2px; height: 2px; --duration: 5.5s;"></div>
-<div class="star" style="top: 72%; left: 90%; width: 1px; height: 1px; --duration: 3.5s;"></div>
-<!-- Falling Stars -->
-<div class="falling-star" style="top: 0%; right: 10%; --fall-duration: 8s;"></div>
-<div class="falling-star" style="top: 20%; right: -10%; --fall-duration: 12s;"></div>
-<div class="falling-star" style="top: 5%; right: 30%; --fall-duration: 10s;"></div>
-<div class="falling-star" style="top: 15%; right: 50%; --fall-duration: 15s;"></div>
-<div class="falling-star" style="top: 40%; right: -20%; --fall-duration: 7s;"></div>
-<div class="falling-star" style="top: 60%; right: 15%; --fall-duration: 11s;"></div>
-</div>
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#10131a]/40 backdrop-blur-xl border-b border-[#3b494c]/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]">
-<div class="flex justify-between items-center px-6 md:px-12 py-4 max-w-full">
-<a class="text-xl font-bold tracking-tighter text-[#c3f5ff] hover:text-[#00e5ff] transition-colors font-headline" href="#">The Celestial Architect</a>
-<div class="hidden md:flex gap-8 items-center">
-<a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all" href="#experience">Experience</a>
-<a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all" href="#skills">Skills</a>
-<a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all" href="#projects">Projects</a>
-<a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all" href="#contact">Contact</a>
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-headline font-bold text-sm tracking-wide shadow-[0_0_15px_rgba(195,245,255,0.3)] scale-95 active:scale-90 transition-transform btn-glow-hover">Download CV</button>
-</div>
-<!-- Mobile Menu Placeholder -->
-<div class="md:hidden">
-<span class="material-symbols-outlined text-primary">menu</span>
-</div>
-</div>
-</nav>
-<main class="relative">
-<!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center px-6 md:px-24 pt-20">
-<div class="max-w-5xl">
-<p class="font-label text-secondary tracking-[0.3em] uppercase mb-4 text-sm opacity-80">System Initialization Complete</p>
-<h1 class="font-headline text-6xl md:text-9xl font-bold tracking-tighter leading-none mb-8 bg-gradient-to-r from-primary via-on-surface to-secondary bg-clip-text text-transparent">
-                    The Celestial<br/>Architect
+    <!-- Star Field Background with Image Overlay -->
+    <div class="star-field">
+        <!-- Static/Twinkling Stars -->
+        <!-- <div class="star" style="top: 10%; left: 20%; width: 2px; height: 2px; --duration: 3s;"></div>
+        <div class="star" style="top: 30%; left: 70%; width: 1px; height: 1px; --duration: 5s;"></div>
+        <div class="star" style="top: 50%; left: 40%; width: 2px; height: 2px; --duration: 4s;"></div>
+        <div class="star" style="top: 80%; left: 10%; width: 1px; height: 1px; --duration: 6s;"></div>
+        <div class="star" style="top: 15%; left: 85%; width: 3px; height: 3px; --duration: 7s;"></div>
+        <div class="star" style="top: 5%; left: 45%; width: 1px; height: 1px; --duration: 4s;"></div>
+        <div class="star" style="top: 25%; left: 15%; width: 2px; height: 2px; --duration: 6s;"></div>
+        <div class="star" style="top: 45%; left: 80%; width: 1px; height: 1px; --duration: 3s;"></div>
+        <div class="star" style="top: 65%; left: 35%; width: 3px; height: 3px; --duration: 8s;"></div>
+        <div class="star" style="top: 85%; left: 60%; width: 1px; height: 1px; --duration: 5s;"></div>
+        <div class="star" style="top: 95%; left: 25%; width: 2px; height: 2px; --duration: 7s;"></div>
+        <div class="star" style="top: 12%; left: 95%; width: 1px; height: 1px; --duration: 4.5s;"></div>
+        <div class="star" style="top: 38%; left: 5%; width: 2px; height: 2px; --duration: 5.5s;"></div>
+        <div class="star" style="top: 72%; left: 90%; width: 1px; height: 1px; --duration: 3.5s;"></div> -->
+        <!-- Falling Stars -->
+        <!-- <div class="falling-star" style="top: 0%; right: 10%; --fall-duration: 8s;"></div>
+        <div class="falling-star" style="top: 20%; right: -10%; --fall-duration: 12s;"></div>
+        <div class="falling-star" style="top: 5%; right: 30%; --fall-duration: 10s;"></div>
+        <div class="falling-star" style="top: 15%; right: 50%; --fall-duration: 15s;"></div>
+        <div class="falling-star" style="top: 40%; right: -20%; --fall-duration: 7s;"></div>
+        <div class="falling-star" style="top: 60%; right: 15%; --fall-duration: 11s;"></div> -->
+    </div>
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-[#10131a]/40 backdrop-blur-xl border-b border-[#3b494c]/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]">
+        <div class="flex justify-between items-center px-6 md:px-12 py-4 max-w-full">
+            <a class="text-xl font-bold tracking-tighter text-[#c3f5ff] hover:text-[#00e5ff] transition-colors font-headline"
+                href="#">The Celestial Architect</a>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all"
+                    href="#experience">Experience</a>
+                <a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all"
+                    href="#skills">Skills</a>
+                <a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all"
+                    href="#projects">Projects</a>
+                <a class="font-['Space_Grotesk'] tracking-wider uppercase text-sm text-[#e1e2eb]/70 hover:text-[#c3f5ff] transition-all"
+                    href="#contact">Contact</a>
+                <button
+                    class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-headline font-bold text-sm tracking-wide shadow-[0_0_15px_rgba(195,245,255,0.3)] scale-95 active:scale-90 transition-transform btn-glow-hover">Download
+                    CV</button>
+            </div>
+            <!-- Mobile Menu Placeholder -->
+            <div class="md:hidden">
+                <span class="material-symbols-outlined text-primary">menu</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-6 md:px-24 pt-20">
+            <div class="max-w-5xl">
+                <p class="font-label text-secondary tracking-[0.3em] uppercase mb-4 text-sm opacity-80">System
+                    Initialization Complete</p>
+                <h1
+                    class="font-headline text-6xl md:text-9xl font-bold tracking-tighter leading-none mb-8 bg-gradient-to-r from-primary via-on-surface to-secondary bg-clip-text text-transparent">
+                    The Celestial<br />Architect
                 </h1>
-<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
-                    Crafting immersive digital ecosystems within the void. Specialist in orbital UI design, pressurized frontend systems, and nebula-scale architecture.
+                <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
+                    Crafting immersive digital ecosystems within the void. Specialist in orbital UI design, pressurized
+                    frontend systems, and nebula-scale architecture.
                 </p>
-<div class="flex flex-wrap gap-6">
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-lg font-headline font-extrabold text-lg tracking-wider shadow-[0_0_25px_rgba(0,229,255,0.4)] transition-all active:scale-95 btn-glow-hover">Initiate Project</button>
-<button class="border border-outline-variant/40 bg-surface-bright/20 backdrop-blur-md text-primary px-10 py-4 rounded-lg font-headline font-bold text-lg tracking-wider hover:bg-surface-bright/40 transition-all btn-glow-secondary-hover">View Archive</button>
-</div>
-</div>
-</section>
-<!-- Experience Section -->
-<section class="py-32 px-6 md:px-24" id="experience">
-<div class="mb-20">
-<h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-2">Experience Timeline</h2>
-<div class="w-20 h-1 bg-primary rounded-full"></div>
-</div>
-<div class="space-y-16 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary/50 before:via-secondary/50 before:to-transparent">
-<!-- Experience Block 1 -->
-<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-<div class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/50 bg-surface shadow-[0_0_15px_rgba(195,245,255,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-<span class="material-symbols-outlined text-primary text-sm">rocket_launch</span>
-</div>
-<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 transition-all">
-<div class="flex items-center justify-between mb-2">
-<h3 class="font-headline text-xl font-bold text-on-surface">Lead Systems Architect</h3>
-<span class="font-label text-xs text-secondary bg-secondary-container/20 px-3 py-1 rounded-full uppercase tracking-widest">Present</span>
-</div>
-<p class="text-primary-fixed-dim font-medium mb-4">Galactic Web Systems</p>
-<p class="text-on-surface-variant text-sm leading-relaxed">
-                            Orchestrating high-load React frameworks for deep-space communication arrays. Implemented a 40% efficiency gain in data packet visualization using custom WebGL shaders.
+                <div class="flex flex-wrap gap-6">
+                    <button
+                        class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-lg font-headline font-extrabold text-lg tracking-wider shadow-[0_0_25px_rgba(0,229,255,0.4)] transition-all active:scale-95 btn-glow-hover">Initiate
+                        Project</button>
+                    <button
+                        class="border border-outline-variant/40 bg-surface-bright/20 backdrop-blur-md text-primary px-10 py-4 rounded-lg font-headline font-bold text-lg tracking-wider hover:bg-surface-bright/40 transition-all btn-glow-secondary-hover">View
+                        Archive</button>
+                </div>
+            </div>
+        </section>
+        <!-- Experience Section -->
+        <section class="py-32 px-6 md:px-24" id="experience">
+            <div class="mb-20">
+                <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-2">Experience Timeline</h2>
+                <div class="w-20 h-1 bg-primary rounded-full"></div>
+            </div>
+            <div
+                class="space-y-16 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary/50 before:via-secondary/50 before:to-transparent">
+                <!-- Experience Block 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/50 bg-surface shadow-[0_0_15px_rgba(195,245,255,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <span class="material-symbols-outlined text-primary text-sm">rocket_launch</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-headline text-xl font-bold text-on-surface">Lead Systems Architect</h3>
+                            <span
+                                class="font-label text-xs text-secondary bg-secondary-container/20 px-3 py-1 rounded-full uppercase tracking-widest">Present</span>
+                        </div>
+                        <p class="text-primary-fixed-dim font-medium mb-4">Galactic Web Systems</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Orchestrating high-load React frameworks for deep-space communication arrays. Implemented a
+                            40% efficiency gain in data packet visualization using custom WebGL shaders.
                         </p>
-</div>
-</div>
-<!-- Experience Block 2 -->
-<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-<div class="flex items-center justify-center w-10 h-10 rounded-full border border-secondary/50 bg-surface shadow-[0_0_15px_rgba(216,185,255,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-<span class="material-symbols-outlined text-secondary text-sm">satellite_alt</span>
-</div>
-<div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-8 rounded-xl border border-outline-variant/20 hover:border-secondary/30 transition-all">
-<div class="flex items-center justify-between mb-2">
-<h3 class="font-headline text-xl font-bold text-on-surface">Interface Designer</h3>
-<span class="font-label text-xs text-on-surface-variant opacity-60 px-3 py-1 rounded-full uppercase tracking-widest">2021 - 2023</span>
-</div>
-<p class="text-secondary-fixed-dim font-medium mb-4">Nebula Creative Lab</p>
-<p class="text-on-surface-variant text-sm leading-relaxed">
-                            Designed the first-ever zero-gravity adaptive UI for mobile exploration units. Focused on accessibility and high-contrast environments using the "Deep Space" design tokens.
+                    </div>
+                </div>
+                <!-- Experience Block 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-secondary/50 bg-surface shadow-[0_0_15px_rgba(216,185,255,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <span class="material-symbols-outlined text-secondary text-sm">satellite_alt</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-8 rounded-xl border border-outline-variant/20 hover:border-secondary/30 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-headline text-xl font-bold text-on-surface">Interface Designer</h3>
+                            <span
+                                class="font-label text-xs text-on-surface-variant opacity-60 px-3 py-1 rounded-full uppercase tracking-widest">2021
+                                - 2023</span>
+                        </div>
+                        <p class="text-secondary-fixed-dim font-medium mb-4">Nebula Creative Lab</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Designed the first-ever zero-gravity adaptive UI for mobile exploration units. Focused on
+                            accessibility and high-contrast environments using the "Deep Space" design tokens.
                         </p>
-</div>
-</div>
-</div>
-</section>
-<!-- Skills Section -->
-<section class="py-32 bg-surface-container-low/50" id="skills">
-<div class="px-6 md:px-24">
-<div class="mb-20 text-center">
-<h2 class="font-headline text-4xl font-bold tracking-tight text-secondary mb-4">Technical Proficiency</h2>
-<p class="font-body text-on-surface-variant">Core competencies across the multidimensional stack</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-<!-- Skill Chip -->
-<div class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-<span class="material-symbols-outlined text-4xl text-primary mb-4 transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">terminal</span>
-<span class="font-headline font-bold text-on-surface tracking-wide">React / Next.js</span>
-<div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
-<div class="bg-primary h-full w-[95%] shadow-[0_0_8px_#c3f5ff]"></div>
-</div>
-</div>
-<div class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-secondary/50 transition-all duration-500 hover:-translate-y-2">
-<span class="material-symbols-outlined text-4xl text-secondary mb-4 transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">view_quilt</span>
-<span class="font-headline font-bold text-on-surface tracking-wide">Tailwind CSS</span>
-<div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
-<div class="bg-secondary h-full w-[90%] shadow-[0_0_8px_#d8b9ff]"></div>
-</div>
-</div>
-<div class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-<span class="material-symbols-outlined text-4xl text-primary mb-4 transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
-<span class="font-headline font-bold text-on-surface tracking-wide">TypeScript</span>
-<div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
-<div class="bg-primary h-full w-[85%] shadow-[0_0_8px_#c3f5ff]"></div>
-</div>
-</div>
-<div class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-secondary/50 transition-all duration-500 hover:-translate-y-2">
-<span class="material-symbols-outlined text-4xl text-secondary mb-4 transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">database</span>
-<span class="font-headline font-bold text-on-surface tracking-wide">PostgreSQL</span>
-<div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
-<div class="bg-secondary h-full w-[80%] shadow-[0_0_8px_#d8b9ff]"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Section -->
-<section class="py-32 px-6 md:px-24" id="projects">
-<div class="mb-20">
-<h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface mb-2">Stellar Deployments</h2>
-<div class="w-20 h-1 bg-secondary rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<!-- Project 1 -->
-<div class="group relative overflow-hidden rounded-2xl glass-card border border-outline-variant/20 hover:border-primary/40 transition-all">
-<div class="aspect-video overflow-hidden">
-<img alt="Digital ecosystem visualization" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70" data-alt="Digital blue neon neural network map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNcHpFBKiQP_fVN3otWKLCYr7AHCcPJVKTZglkk6zzNR06ADEZPLrgWIFYjjph9P9n-Z4Kf52RUiUn7pEHatTFKCOo4WD1g6BIAQPNUIWn8t1IVqsMj9VVjSsJohDe6VpDaLnuPzxGBGvLhJqq9pLZFq04PJKVRASi4_JTjqzHr3EOEmBTW_bCjpdLc9RhuxnxA0aVP9QNP4of4-MI2_JTlrqDSsWdq6Os7qkmxJ0nZ8FlZJurEVcL9uKUzl7IG4VhrJDVbtCP2Qo"/>
-</div>
-<div class="p-8 relative">
-<div class="flex gap-2 mb-4">
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">WebGL</span>
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">React</span>
-</div>
-<h3 class="font-headline text-2xl font-bold text-on-surface mb-3">Project: Event Horizon</h3>
-<p class="text-on-surface-variant mb-6 leading-relaxed">
-                            A real-time gravitational data visualization dashboard built for the Interstellar Research Center. Features fluid dynamics and high-fidelity rendering.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section class="py-32 bg-surface-container-low/50" id="skills">
+            <div class="px-6 md:px-24">
+                <div class="mb-20 text-center">
+                    <h2 class="font-headline text-4xl font-bold tracking-tight text-secondary mb-4">Technical
+                        Proficiency</h2>
+                    <p class="font-body text-on-surface-variant">Core competencies across the multidimensional stack</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    <!-- Skill Chip -->
+                    <div
+                        class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary mb-4 transition-transform group-hover:scale-110"
+                            style="font-variation-settings: 'FILL' 1;">terminal</span>
+                        <span class="font-headline font-bold text-on-surface tracking-wide">React / Next.js</span>
+                        <div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
+                            <div class="bg-primary h-full w-[95%] shadow-[0_0_8px_#c3f5ff]"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-secondary/50 transition-all duration-500 hover:-translate-y-2">
+                        <span
+                            class="material-symbols-outlined text-4xl text-secondary mb-4 transition-transform group-hover:scale-110"
+                            style="font-variation-settings: 'FILL' 1;">view_quilt</span>
+                        <span class="font-headline font-bold text-on-surface tracking-wide">Tailwind CSS</span>
+                        <div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
+                            <div class="bg-secondary h-full w-[90%] shadow-[0_0_8px_#d8b9ff]"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary mb-4 transition-transform group-hover:scale-110"
+                            style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+                        <span class="font-headline font-bold text-on-surface tracking-wide">TypeScript</span>
+                        <div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
+                            <div class="bg-primary h-full w-[85%] shadow-[0_0_8px_#c3f5ff]"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 glass-card border border-outline-variant/10 rounded-xl hover:border-secondary/50 transition-all duration-500 hover:-translate-y-2">
+                        <span
+                            class="material-symbols-outlined text-4xl text-secondary mb-4 transition-transform group-hover:scale-110"
+                            style="font-variation-settings: 'FILL' 1;">database</span>
+                        <span class="font-headline font-bold text-on-surface tracking-wide">PostgreSQL</span>
+                        <div class="mt-4 w-full bg-surface-container-highest rounded-full h-1 overflow-hidden">
+                            <div class="bg-secondary h-full w-[80%] shadow-[0_0_8px_#d8b9ff]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects Section -->
+        <section class="py-32 px-6 md:px-24" id="projects">
+            <div class="mb-20">
+                <h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface mb-2">Stellar Deployments
+                </h2>
+                <div class="w-20 h-1 bg-secondary rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Project 1 -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl glass-card border border-outline-variant/20 hover:border-primary/40 transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img alt="Digital ecosystem visualization"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
+                            data-alt="Digital blue neon neural network map"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNcHpFBKiQP_fVN3otWKLCYr7AHCcPJVKTZglkk6zzNR06ADEZPLrgWIFYjjph9P9n-Z4Kf52RUiUn7pEHatTFKCOo4WD1g6BIAQPNUIWn8t1IVqsMj9VVjSsJohDe6VpDaLnuPzxGBGvLhJqq9pLZFq04PJKVRASi4_JTjqzHr3EOEmBTW_bCjpdLc9RhuxnxA0aVP9QNP4of4-MI2_JTlrqDSsWdq6Os7qkmxJ0nZ8FlZJurEVcL9uKUzl7IG4VhrJDVbtCP2Qo" />
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="text-[10px] font-label font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">WebGL</span>
+                            <span
+                                class="text-[10px] font-label font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">React</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface mb-3">Project: Event Horizon</h3>
+                        <p class="text-on-surface-variant mb-6 leading-relaxed">
+                            A real-time gravitational data visualization dashboard built for the Interstellar Research
+                            Center. Features fluid dynamics and high-fidelity rendering.
                         </p>
-<a class="inline-flex items-center text-primary font-headline font-bold tracking-wider hover:gap-2 transition-all" href="#">
+                        <a class="inline-flex items-center text-primary font-headline font-bold tracking-wider hover:gap-2 transition-all"
+                            href="#">
                             EXPLORE MISSION <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Project 2 -->
-<div class="group relative overflow-hidden rounded-2xl glass-card border border-outline-variant/20 hover:border-secondary/40 transition-all">
-<div class="aspect-video overflow-hidden">
-<img alt="Satellite interface concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70" data-alt="Satellite dish against space and blue earth background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBDgbEgInhuEExBQmKlbSzWLGJFGnfIlWxTq2sjBJnjTZKeZ66pZfC-MzaTgNgAcbe0a5eAZpl79sZ2d-Geov-Yt2zbf_OOq6Qybz0KNQ9R9qx9EDkt6I1jNpddDcE4AIn6aPbqn9yfYVF6wngd7mb0X4VdkZ9ytiWcbrF-5ruQ4Dm4SJTLkb-1z3dR1ZNcCSHqfHSpSmrON9_AunrL5sdNEEBTWHMmJsJvcmwdOnydM9hmng5TNM9NPlgNh4OxhVDmY-mMp9j4pU"/>
-</div>
-<div class="p-8 relative">
-<div class="flex gap-2 mb-4">
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-1 rounded">Rust</span>
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-1 rounded">WASM</span>
-</div>
-<h3 class="font-headline text-2xl font-bold text-on-surface mb-3">Void Engine v2</h3>
-<p class="text-on-surface-variant mb-6 leading-relaxed">
-                            High-performance rendering engine compiled to WASM for browser-based atmospheric simulations and orbital mechanics.
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl glass-card border border-outline-variant/20 hover:border-secondary/40 transition-all">
+                    <div class="aspect-video overflow-hidden">
+                        <img alt="Satellite interface concept"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
+                            data-alt="Satellite dish against space and blue earth background"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBDgbEgInhuEExBQmKlbSzWLGJFGnfIlWxTq2sjBJnjTZKeZ66pZfC-MzaTgNgAcbe0a5eAZpl79sZ2d-Geov-Yt2zbf_OOq6Qybz0KNQ9R9qx9EDkt6I1jNpddDcE4AIn6aPbqn9yfYVF6wngd7mb0X4VdkZ9ytiWcbrF-5ruQ4Dm4SJTLkb-1z3dR1ZNcCSHqfHSpSmrON9_AunrL5sdNEEBTWHMmJsJvcmwdOnydM9hmng5TNM9NPlgNh4OxhVDmY-mMp9j4pU" />
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="flex gap-2 mb-4">
+                            <span
+                                class="text-[10px] font-label font-bold uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-1 rounded">Rust</span>
+                            <span
+                                class="text-[10px] font-label font-bold uppercase tracking-widest text-secondary bg-secondary/10 px-2 py-1 rounded">WASM</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface mb-3">Void Engine v2</h3>
+                        <p class="text-on-surface-variant mb-6 leading-relaxed">
+                            High-performance rendering engine compiled to WASM for browser-based atmospheric simulations
+                            and orbital mechanics.
                         </p>
-<a class="inline-flex items-center text-secondary font-headline font-bold tracking-wider hover:gap-2 transition-all" href="#">
+                        <a class="inline-flex items-center text-secondary font-headline font-bold tracking-wider hover:gap-2 transition-all"
+                            href="#">
                             ACCESS SCHEMATICS <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-32 px-6" id="contact">
-<div class="max-w-4xl mx-auto glass-card border border-primary/20 p-12 md:p-20 rounded-3xl text-center relative overflow-hidden">
-<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
-<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
-<h2 class="font-headline text-4xl md:text-5xl font-bold mb-6 text-on-surface">Ready to build the future?</h2>
-<p class="font-body text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-32 px-6" id="contact">
+            <div
+                class="max-w-4xl mx-auto glass-card border border-primary/20 p-12 md:p-20 rounded-3xl text-center relative overflow-hidden">
+                <div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+                <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6 text-on-surface">Ready to build the future?
+                </h2>
+                <p class="font-body text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">
                     Currently accepting commissions for experimental interfaces and high-tech digital systems.
                 </p>
-<div class="flex flex-col md:flex-row justify-center gap-6">
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-12 py-5 rounded-lg font-headline font-extrabold text-xl tracking-widest shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all active:scale-95 btn-glow-hover">ESTABLISH COMMS</button>
-<button class="border border-outline-variant/40 bg-surface-bright/20 backdrop-blur-md text-on-surface px-12 py-5 rounded-lg font-headline font-bold text-xl tracking-widest hover:bg-surface-bright/40 transition-all btn-glow-secondary-hover">SIGNAL ARCHIVE</button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full py-12 mt-20 border-t border-[#3b494c]/10 bg-[#0b0e14]">
-<div class="flex flex-col md:flex-row justify-between items-center px-12 gap-6">
-<span class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] opacity-60">© 2024 The Celestial Architect. Built for the deep void.</span>
-<div class="flex gap-8">
-<a class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] hover:text-[#00e5ff] transition-opacity opacity-80 hover:opacity-100" href="#">LinkedIn</a>
-<a class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] hover:text-[#00e5ff] transition-opacity opacity-80 hover:opacity-100" href="#">GitHub</a>
-<a class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] hover:text-[#00e5ff] transition-opacity opacity-80 hover:opacity-100" href="#">Layers</a>
-</div>
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="font-label text-[10px] text-primary uppercase tracking-[0.2em]">Signal Active</span>
-</div>
-</div>
-</footer>
-</body></html>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <button
+                        class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-12 py-5 rounded-lg font-headline font-extrabold text-xl tracking-widest shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all active:scale-95 btn-glow-hover">ESTABLISH
+                        COMMS</button>
+                    <button
+                        class="border border-outline-variant/40 bg-surface-bright/20 backdrop-blur-md text-on-surface px-12 py-5 rounded-lg font-headline font-bold text-xl tracking-widest hover:bg-surface-bright/40 transition-all btn-glow-secondary-hover">SIGNAL
+                        ARCHIVE</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-12 mt-20 border-t border-[#3b494c]/10 bg-[#0b0e14]">
+        <div class="flex flex-col md:flex-row justify-between items-center px-12 gap-6">
+            <span class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] opacity-60">© 2024 The Celestial
+                Architect. Built for the deep void.</span>
+            <div class="flex gap-8">
+                <a class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] hover:text-[#00e5ff] transition-opacity opacity-80 hover:opacity-100"
+                    href="#">LinkedIn</a>
+                <a class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] hover:text-[#00e5ff] transition-opacity opacity-80 hover:opacity-100"
+                    href="#">GitHub</a>
+                <a class="font-['Inter'] text-xs tracking-tight text-[#bac9cc] hover:text-[#00e5ff] transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Layers</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em]">Signal Active</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
