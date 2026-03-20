@@ -93,5 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
       $(".star-field").append("<div class='falling-star" + extraClass + "' style='top: " + top + "%; left: " + left + "%; --fall-duration: " + duration + "s; animation-delay: " + delay + "s; --star-color: " + color + ";'></div>");
     }
   }
+
+  
+  $("#comms-btn").on("click", function(e) {
+    e.preventDefault();
+    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=m.rilabagus@gmail.com&su=Let%27s%20work%20together&body=Hi%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20you.', '_blank');
+  });
 });
 
