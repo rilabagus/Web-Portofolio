@@ -93,10 +93,10 @@ body {
     border-radius: inherit;
 }
 
-.glass-card.react { --card-shadow: 195, 245, 255; }
-.glass-card.tailwind { --card-shadow: 216, 185, 255; }
-.glass-card.typescript { --card-shadow: 173, 248, 255; }
-.glass-card.postgresql { --card-shadow: 214, 154, 255; }
+.glass-card.blue { --card-shadow: 195, 245, 255; }
+.glass-card.purple { --card-shadow: 216, 185, 255; }
+/* .glass-card.typescript { --card-shadow: 173, 248, 255; }
+.glass-card.postgresql { --card-shadow: 214, 154, 255; } */
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
