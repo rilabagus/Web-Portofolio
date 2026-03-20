@@ -94,9 +94,38 @@ body {
 }
 
 .glass-card.blue { --card-shadow: 195, 245, 255; }
-.glass-card.purple { --card-shadow: 216, 185, 255; }
-/* .glass-card.typescript { --card-shadow: 173, 248, 255; }
-.glass-card.postgresql { --card-shadow: 214, 154, 255; } */
+.glass-card.blue .material-symbols-outlined,
+.glass-card.blue .font-headline {
+    color: #c3f5ff;
+}
+.glass-card.blue .bg-progress { background-color: #c3f5ff; }
+
+/* .glass-card.purple { --card-shadow: 216, 185, 255; } */
+.glass-card.secondary { --card-shadow: 216, 185, 255; }
+.glass-card.secondary .material-symbols-outlined,
+.glass-card.secondary .font-headline {
+    color: #d8b9ff;
+}
+.glass-card.secondary .bg-progress { background-color: #d8b9ff; }
+
+.glass-card.error { --card-shadow: 255, 180, 171; }
+.glass-card.error .material-symbols-outlined,
+.glass-card.error .font-headline {
+    color: #ffb4ab;
+}
+.glass-card.error .bg-progress { background-color: #ffb4ab; }
+
+.glass-card.mint { --card-shadow: 168, 255, 206; }
+.glass-card.mint .material-symbols-outlined,
+.glass-card.mint .font-headline {
+    color: #a8ffce;
+}
+.glass-card.mint .bg-progress { background-color: #a8ffce; }
+
+.glass-card.blue .bg-primary { background-color: #c3f5ff !important; }
+.glass-card.secondary .bg-primary { background-color: #d8b9ff !important; }
+.glass-card.error .bg-primary { background-color: #ffb4ab !important; }
+.glass-card.mint .bg-mint { background-color: #a8ffce !important; }
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
