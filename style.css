@@ -69,17 +69,18 @@ body {
 }
 
 .glass-card {
+    --card-shadow: 195, 245, 255;
     background: rgba(54, 57, 64, 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), inset 0 0 1px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), inset 0 0 1px rgba(255, 255, 255, 0.08), 0 0 8px rgba(var(--card-shadow), 0.2);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .glass-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(255, 255, 255, 0.2), 0 0 26px rgba(195, 245, 255, 0.3), 0 0 4px rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(255, 255, 255, 0.2), 0 0 36px rgba(var(--card-shadow), 0.45), 0 0 6px rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.32);
 }
 
 .glass-card:hover::before {
@@ -91,6 +92,11 @@ body {
     opacity: 0.6;
     border-radius: inherit;
 }
+
+.glass-card.react { --card-shadow: 195, 245, 255; }
+.glass-card.tailwind { --card-shadow: 216, 185, 255; }
+.glass-card.typescript { --card-shadow: 173, 248, 255; }
+.glass-card.postgresql { --card-shadow: 214, 154, 255; }
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
